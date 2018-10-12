@@ -826,7 +826,7 @@ ul.nav > li > a.active{
    Subscribe Section
    ========================================================================== */
 .subscribe-section{
-    background-color: #1151d3;
+    background-color: white;
 }
 .subscribe-section .logo{
     margin-bottom: 30px;
@@ -836,7 +836,7 @@ ul.nav > li > a.active{
     margin-bottom: 40px;
 }
 .subscribe-content p{
-    color: #fff;
+    color: black;
 }
 .subscribe-wrap{
     display: block;
@@ -852,8 +852,6 @@ ul.nav > li > a.active{
 }
 .subscribe-form .form_input{
     background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #f65a7d;
     display: block;
     color: #fff;
     font-size: 14px;
@@ -862,14 +860,15 @@ ul.nav > li > a.active{
     float: left;
     width: 100%;
     outline: none;
-    border-radius: 0;
     padding-right: 110px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
 }
 .subscribe-form .submit{
     position: absolute;
-    right: -3px;
-    top: 4px;
-    height: 55px;
+    right: 1px;
+    top: 1px;
+    height: 58px;
     width: 120px;
     text-transform: uppercase;
     font-size: 12px;
