@@ -1,43 +1,44 @@
 /* Axuta Theme Scripts */
 
-(function($){ "use strict";
-             
-    $(window).on('load', function() {
+(function ($) {
+    "use strict";
+
+    $(window).on('load', function () {
         $('body').addClass('loaded');
     });
-             
-/*=========================================================================
-	Sticky Header
-=========================================================================*/ 
-	$(function() {
-		var header = $("#header"),
-			yOffset = 0,
-			triggerPoint = 80;
-		$(window).on( 'scroll', function() {
-			yOffset = $(window).scrollTop();
 
-			if (yOffset >= triggerPoint) {
-				header.addClass("navbar-fixed-top");
-			} else {
-				header.removeClass("navbar-fixed-top");
-			}
+    /*=========================================================================
+        Sticky Header
+    =========================================================================*/
+    $(function () {
+        var header = $("#header"),
+            yOffset = 0,
+            triggerPoint = 80;
+        $(window).on('scroll', function () {
+            yOffset = $(window).scrollTop();
 
-		});
-	});
+            if (yOffset >= triggerPoint) {
+                header.addClass("navbar-fixed-top");
+            } else {
+                header.removeClass("navbar-fixed-top");
+            }
 
-/*=========================================================================
-        Mobile Menu
-=========================================================================*/  
+        });
+    });
+
+    /*=========================================================================
+            Mobile Menu
+    =========================================================================*/
     $('.menu-wrap ul.nav').slicknav({
         prependTo: '.header-section .navbar',
         label: '',
         allowParentLinks: true
-    });          
+    });
 
-                
-/*=========================================================================
-    Screenshot Carousel
-=========================================================================*/
+
+    /*=========================================================================
+        Screenshot Carousel
+    =========================================================================*/
     function getSlide() {
         var wW = $(window).width();
         if (wW < 991) {
@@ -48,13 +49,15 @@
             return 5;
         }
     }
-    function getSlideSpace(){
+
+    function getSlideSpace() {
         var wW = $(window).width();
         if (wW < 991) {
             return 0;
         }
         return 20;
-    }    
+    }
+
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: getSlide(),
         loop: true,
@@ -65,20 +68,20 @@
             prevEl: '.swiper-prev',
         },
         spaceBetween: getSlideSpace()
-    });   
-                            
-             
-/*=========================================================================
-	Initialize smoothscroll plugin
-=========================================================================*/
-	smoothScroll.init({
-		offset: 60
-	});
-	 
-/*=========================================================================
-	Scroll To Top
-=========================================================================*/ 
-    $(window).on( 'scroll', function () {
+    });
+
+
+    /*=========================================================================
+        Initialize smoothscroll plugin
+    =========================================================================*/
+    smoothScroll.init({
+        offset: 60
+    });
+
+    /*=========================================================================
+        Scroll To Top
+    =========================================================================*/
+    $(window).on('scroll', function () {
         if ($(this).scrollTop() > 100) {
             $('#scroll-to-top').fadeIn();
         } else {
@@ -86,34 +89,37 @@
         }
     });
 
-/*=========================================================================
-	WOW Active
-=========================================================================*/ 
-   new WOW().init();
-             
-/*=========================================================================
-	MAILCHIMP
-=========================================================================*/ 
-    if ($('.subscribe_form').length>0) {
-        /*  MAILCHIMP  */
-        $('.subscribe_form').ajaxChimp({
-            language: 'es',
-            callback: mailchimpCallback,
-            url: "//alexatheme.us14.list-manage.com/subscribe/post?u=48e55a88ece7641124b31a029&amp;id=361ec5b369" 
-        });
-    }
+    /*=========================================================================
+        WOW Active
+    =========================================================================*/
+    new WOW().init();
+
+    /*=========================================================================
+        MAILCHIMP
+    =========================================================================*/
+    // if ($('.subscribe_form').length > 0) {
+    /*  MAILCHIMP  */
+    $('.subscribe-form').ajaxChimp({
+        language: 'en',
+        callback: mailchimpCallback,
+        url: "https://otchi.us16.list-manage.com/subscribe/post?u=777352d24bcd1d0325af0c653&amp;id=20be498be3"
+    });
+
+    // }
 
     function mailchimpCallback(resp) {
+        $('#subscribe-result').show();
         if (resp.result === 'success') {
-            $('#subscribe-result').addClass('subs-result');
-            $('.subscription-success').text(resp.msg).fadeIn();
-            $('.subscription-error').fadeOut();
+            $('.subscription-success').show();
+            $('.subscription-error').hide();
+            $('.subscribe-form').hide();
 
-        } else if(resp.result === 'error') {
-            $('#subscribe-result').addClass('subs-result');
-            $('.subscription-error').text(resp.msg).fadeIn();
+        } else if (resp.result === 'error') {
+            $('.subscription-error').show();
+            $('.subscription-success').hide();
         }
     }
+
     $.ajaxChimp.translations.es = {
         'submit': 'Submitting...',
         0: 'We have sent you a confirmation email',

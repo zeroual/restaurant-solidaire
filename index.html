@@ -117,15 +117,17 @@
             <small>Nous respectons votre vie privée et nous ne vous envoie jamais de spam.</small>
         </div>
         <div class="subscribe-wrap">
-            <form action="#" class="subscribe-form">
-                <input type="email" name="email" id="subs-email" class="form_input"
-                       placeholder="Enter Your Email Address...">
-                <button type="submit" class="submit">Subscribe</button>
-                <div id="subscribe-result">
-                    <p class="subscription-success"></p>
-                    <p class="subscription-error"></p>
+            <form class="subscribe-form">
+                <div class="form-group">
+                    <input type="email" name="email" id="subs-email" class="form-control input-group-append form_input"
+                           placeholder="Enter Your Email Address...">
+                    <button type="submit" class="submit">Subscribe</button>
                 </div>
             </form>
+            <div id="subscribe-result">
+                <p class="subscription-success alert-success">Merci pour votre intérêt envers notre projet. A très bientôt !</p>
+                <p class="subscription-error alert-danger"> Oops, Il y a eu une erreur lors de l'inscription :(</p>
+            </div>
         </div><!-- /.subscribe_wrap -->
     </div>
 </div><!-- Subscribe Section -->

@@ -1083,11 +1083,9 @@ ul.nav > li > a.active {
 .subscribe-form .form_input {
     background-color: transparent;
     display: block;
-    color: #fff;
     font-size: 14px;
     line-height: 58px;
     padding: 0 15px;
-    float: left;
     width: 100%;
     outline: none;
     padding-right: 110px;
@@ -1117,16 +1115,23 @@ ul.nav > li > a.active {
     display: none;
     margin-top: 15px;
     padding: 10px;
-    border: 1px solid #111;
 }
 
 #subscribe-result.subs-result {
     display: block;
 }
 
-.subscription-success,
+.subscription-success, .subscription-error {
+    font-size: medium;
+    padding: 14px;
+}
+
+.subscription-success {
+    color: green;
+}
+
 .subscription-error {
-    color: #fff;
+    color: red;
 }
 
 .social-link {
